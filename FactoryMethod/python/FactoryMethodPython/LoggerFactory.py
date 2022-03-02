@@ -1,6 +1,6 @@
 from FileLogger import *
 from ConsoleLogger import *
-from DBLogger import *
+# from DBLogger import *
 
 class LoggerFactory():
     """Class that contains factory method."""
