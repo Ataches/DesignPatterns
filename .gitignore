@@ -26,5 +26,11 @@ hs_err_pid*
 /Singleton/SingletonWithGUIEarlyInit/.idea
 /Singleton/SingletonWithGUISafeThread/.idea
 /AbstractFactory/AbstractFactoryReverseExample/.idea/
+/Prototype/CopiaSuperficial/.idea
+/Prototype/CopiaSuperficial/CopiaSuperficial.iml
+/Prototype/CopiaSuperficial/out
+/Prototype/CopiaProfunda/.idea
+/Prototype/CopiaProfunda/CopiaProfunda.iml
+/Prototype/CopiaProfunda/out
 /DesignPatterns.iml
 DesignPatterns.iml
