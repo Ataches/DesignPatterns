@@ -34,6 +34,7 @@ public class SearchManager extends JFrame {
     cmbSearchType.addItem(SearchManager.BLANK);
     cmbSearchType.addItem(SearchManager.CANDIDATE_SRCH);
     cmbSearchType.addItem(SearchManager.EMPLOYER_SRCH);
+    cmbSearchType.addItem(SearchManager.ENTERPRISE_SRCH);
 
     //Create Labels
     JLabel lblSearchType = new JLabel("Statement type:");
