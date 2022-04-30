@@ -18,6 +18,13 @@ class OrderVisitor implements VisitorInterface {
     orderTotal = orderTotal + inp_order.getOrderAmount() +
                  inp_order.getAdditionalSH();
   }
+
+  @Override
+  public void visit(ChineseOrder inp_order) {
+    orderTotal = orderTotal + inp_order.getOrderAmount() +
+            inp_order.getAdditionalSH();
+  }
+
   public double getOrderTotal() {
     return orderTotal;
   }

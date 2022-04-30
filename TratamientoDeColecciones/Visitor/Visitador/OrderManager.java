@@ -38,6 +38,7 @@ public class OrderManager extends JFrame {
     cmbOrderType.addItem(OrderManager.CA_ORDER);
     cmbOrderType.addItem(OrderManager.NON_CA_ORDER);
     cmbOrderType.addItem(OrderManager.OVERSEAS_ORDER);
+    cmbOrderType.addItem(OrderManager.CHINESE_ORDER);
 
     txtOrderAmount = new JTextField(10);
     txtAdditionalTax = new JTextField(10);
@@ -281,13 +282,14 @@ class ButtonHandler implements ActionListener {
     if (orderType.equalsIgnoreCase(OrderManager.CA_ORDER)) {
       return new CaliforniaOrder(orderAmount, tax);
     }
-    if (orderType.equalsIgnoreCase(
-      OrderManager.NON_CA_ORDER)) {
+    if (orderType.equalsIgnoreCase(OrderManager.NON_CA_ORDER)) {
       return new NonCaliforniaOrder(orderAmount);
     }
-    if (orderType.equalsIgnoreCase(
-          OrderManager.OVERSEAS_ORDER)) {
+    if (orderType.equalsIgnoreCase(OrderManager.OVERSEAS_ORDER)) {
       return new OverseasOrder(orderAmount, SH);
+    }
+    if (orderType.equalsIgnoreCase(OrderManager.CHINESE_ORDER)) {
+      return new ChineseOrder(orderAmount, SH);
     }
     return null;
   }
