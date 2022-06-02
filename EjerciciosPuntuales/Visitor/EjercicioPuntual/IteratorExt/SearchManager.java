@@ -21,7 +21,6 @@ public class SearchManager extends JFrame {
   public static final String EXIT = "Exit";
 
   public static final String SELECT_ORDER = "Select order";
-  private Vector orderObjList;
 
   private JComboBox cmbOrderType;
   private JComboBox cmbOrders;
@@ -152,9 +151,6 @@ public class SearchManager extends JFrame {
     } catch (Exception ex) {
       System.out.println(ex);
     }
-  }
-  public SearchManager(Vector orderObjList){
-    this.orderObjList = orderObjList;
   }
   public void editOrders() {
 

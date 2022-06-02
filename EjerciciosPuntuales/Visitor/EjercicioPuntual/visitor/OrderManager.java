@@ -249,7 +249,7 @@ class ButtonHandler implements ActionListener {
             OrderVisitor visitor =
                     objOrderManager.getOrderVisitor();
 
-            SearchManager sr = new SearchManager(visitor.getOrderObjList());
+            SearchManager sr = new SearchManager();
             sr.editOrders();
         }
 

@@ -1,5 +1,4 @@
 California,2.3,0.0,0.0
-Chinese,2.3,0.0,0.0
 Overseas,2.3,0.0,0.0
 California,20.0,10.0,0.0
 California,20.0,10.0,0.0
@@ -7,3 +6,4 @@ California,20.0,10.0,0.0
 California,20.0,0.023,0.0
 NonCalifornia,30.0,0.0,0.0
 NonCalifornia,30.0,0.0,0.0
+Chinese,23.0,0.0,0.0
