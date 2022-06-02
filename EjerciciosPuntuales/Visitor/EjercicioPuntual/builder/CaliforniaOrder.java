@@ -1,15 +1,24 @@
+package builder;
+
+import IteratorExt.Order;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class CaliforniaOrder extends Order {
-  private double orderAmount;
-  private double additionalTax;
+public class CaliforniaOrder extends UIOrder {
 
+  private Order order;
   private JTextField txtOrderAmount, txtAdditionalTax;
   private JLabel lblOrderAmount, lblAdditionalTax;
 
   public void addUIControls() {
     searchUI = new JPanel();
+
+    txtOrderAmount = new JTextField(10);
+    txtAdditionalTax = new JTextField(10);
+    lblOrderAmount = new JLabel("Order Amount:");
+    lblAdditionalTax =
+            new JLabel("Additional Tax:");
 
     GridBagLayout gridbag = new GridBagLayout();
     searchUI.setLayout(gridbag);
@@ -42,21 +51,27 @@ public class CaliforniaOrder extends Order {
     gridbag.setConstraints(txtAdditionalTax, gbc);
   }
 
+  @Override
+  public void setOrder(Order order) {
+    this.order = order;
+  }
+
+  @Override
+  public void initialize() {
+    txtOrderAmount.setText(""+order.getOrderAmount());
+    txtAdditionalTax.setText(""+order.getAdditionalTax());
+  }
+
+  @Override
+  public Order getOrderEdited() {
+    Order orderEdited;
+    orderEdited = (Order) order.clone();
+    orderEdited.setOrderAmount(Double.parseDouble(txtOrderAmount.getText()));
+    orderEdited.setAdditionalTax(Double.parseDouble(txtAdditionalTax.getText()));
+    return orderEdited;
+  }
+
   public CaliforniaOrder() {
-  }
-  public CaliforniaOrder(double inp_orderAmount,
-      double inp_additionalTax) {
-    orderAmount = inp_orderAmount;
-    additionalTax = inp_additionalTax;
-  }
-  public double getOrderAmount() {
-    return orderAmount;
-  }
-  public double getAdditionalTax() {
-    return additionalTax;
-  }
-  public void accept(OrderVisitor v) {
-    v.visit(this);
   }
 }
 

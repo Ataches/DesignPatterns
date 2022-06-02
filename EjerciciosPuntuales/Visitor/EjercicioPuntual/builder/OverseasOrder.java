@@ -1,15 +1,24 @@
+package builder;
+
+import IteratorExt.Order;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class OverseasOrder extends Order {
-  private double orderAmount;
-  private double additionalSH;
+public class OverseasOrder extends UIOrder {
 
   private JTextField txtOrderAmount, txtAdditionalSH;
   private JLabel lblOrderAmount, lblAdditionalSH;
+  private Order order;
 
   public void addUIControls() {
     searchUI = new JPanel();
+
+    txtOrderAmount = new JTextField(10);
+    txtAdditionalSH = new JTextField(10);
+    lblOrderAmount = new JLabel("Order Amount:");
+    lblAdditionalSH =
+            new JLabel("Additional S & H:");
 
     GridBagLayout gridbag = new GridBagLayout();
     searchUI.setLayout(gridbag);
@@ -41,20 +50,25 @@ public class OverseasOrder extends Order {
     gbc.gridy = 1;
     gridbag.setConstraints(txtAdditionalSH, gbc);
   }
+  @Override
+  public void setOrder(Order order) {
+    this.order = order;
+  }
+
+  @Override
+  public void initialize() {
+    txtOrderAmount.setText(""+order.getOrderAmount());
+    txtAdditionalSH.setText(""+order.getAdditionalSH());
+  }
+
+  @Override
+  public Order getOrderEdited() {
+    Order orderEdited;
+    orderEdited = (Order) order.clone();
+    orderEdited.setOrderAmount(Double.parseDouble(txtOrderAmount.getText()));
+    orderEdited.setAdditionalSH(Double.parseDouble(txtAdditionalSH.getText()));
+    return orderEdited;
+  }
   public OverseasOrder() {
-  }
-  public OverseasOrder(double inp_orderAmount,
-      double inp_additionalSH) {
-    orderAmount = inp_orderAmount;
-    additionalSH = inp_additionalSH;
-  }
-  public double getOrderAmount() {
-    return orderAmount;
-  }
-  public double getAdditionalSH() {
-    return additionalSH;
-  }
-  public void accept(OrderVisitor v) {
-    v.visit(this);
   }
 }

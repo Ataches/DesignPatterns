@@ -1,14 +1,20 @@
+package builder;
+
+import IteratorExt.Order;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class NonCaliforniaOrder extends Order {
-  private double orderAmount;
-
+public class NonCaliforniaOrder extends UIOrder {
   private JTextField txtOrderAmount;
   private JLabel lblOrderAmount;
+  private Order order;
 
   public void addUIControls() {
     searchUI = new JPanel();
+
+    txtOrderAmount = new JTextField(10);
+    lblOrderAmount = new JLabel("Order Amount:");
 
     GridBagLayout gridbag = new GridBagLayout();
     searchUI.setLayout(gridbag);
@@ -32,15 +38,24 @@ public class NonCaliforniaOrder extends Order {
     gbc.gridy = 0;
     gridbag.setConstraints(txtOrderAmount, gbc);
   }
+  @Override
+  public void setOrder(Order order) {
+    this.order = order;
+  }
+
+  @Override
+  public void initialize() {
+    txtOrderAmount.setText(""+order.getOrderAmount());
+  }
+
+  @Override
+  public Order getOrderEdited() {
+    Order orderEdited;
+    orderEdited = (Order) order.clone();
+    orderEdited.setOrderAmount(Double.parseDouble(txtOrderAmount.getText()));
+    return orderEdited;
+  }
+
   public NonCaliforniaOrder() {
-  }
-  public NonCaliforniaOrder(double inp_orderAmount) {
-    orderAmount = inp_orderAmount;
-  }
-  public double getOrderAmount() {
-    return orderAmount;
-  }
-  public void accept(OrderVisitor v) {
-    v.visit(this);
   }
 }
