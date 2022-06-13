@@ -246,9 +246,6 @@ class ButtonHandler implements ActionListener {
         }
 
         if (e.getActionCommand().equals(OrderManager.EDIT_ORDER)) {
-            OrderVisitor visitor =
-                    objOrderManager.getOrderVisitor();
-
             SearchManager sr = new SearchManager();
             sr.editOrders();
         }
