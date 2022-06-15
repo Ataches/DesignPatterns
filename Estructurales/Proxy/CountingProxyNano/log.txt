@@ -7,3 +7,7 @@ Iteration= 1 ::Time= 19044300 nanosegundos
 Iteration= 2 ::Time= 186500 nanosegundos
 Iteration= 3 ::Time= 172200 nanosegundos
 Iteration= 4 ::Time= 186100 nanosegundos
+Iteration= 1 ::Time= 38814800 nanosegundos
+Iteration= 2 ::Time= 197800 nanosegundos
+Iteration= 3 ::Time= 206900 nanosegundos
+Iteration= 4 ::Time= 930200 nanosegundos
