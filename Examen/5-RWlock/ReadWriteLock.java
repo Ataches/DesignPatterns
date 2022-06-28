@@ -44,8 +44,7 @@ public class ReadWriteLock {
     synchronized (lockObj) {
       threadsWaitingForWriteLock++;
 
-      while ((totalReadLocksGiven != 0) ||
-          (writeLockIssued)) {
+      while ((totalReadLocksGiven != 0) ||(writeLockIssued)) {
         try {
           lockObj.wait();
         } catch (InterruptedException e) {
