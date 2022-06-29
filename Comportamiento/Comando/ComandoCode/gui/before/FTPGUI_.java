@@ -1,12 +1,10 @@
-import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
-import com.sun.java.swing.plaf.windows.*;
-import java.util.*;
 
-public class FTPGUI extends JFrame {
+import com.sun.java.swing.plaf.windows.*;
+
+public class FTPGUI_ extends JFrame {
   public static final String newline = "\n";
   public static final String UPLOAD = "Upload";
   public static final String DOWNLOAD = "Download";
@@ -22,7 +20,7 @@ public class FTPGUI extends JFrame {
   private JButton btnDelete;
   private JButton btnExit;
 
-  public FTPGUI() throws Exception {
+  public FTPGUI_() throws Exception {
     super("Command Pattern - Example");
 
     // Create controls
@@ -48,13 +46,13 @@ public class FTPGUI extends JFrame {
     JLabel lblSpacer = new JLabel("         ");
 
     //Create buttons
-    btnUpload = new JButton(FTPGUI.UPLOAD);
+    btnUpload = new JButton(FTPGUI_.UPLOAD);
     btnUpload.setMnemonic(KeyEvent.VK_U);
-    btnDownload = new JButton(FTPGUI.DOWNLOAD);
+    btnDownload = new JButton(FTPGUI_.DOWNLOAD);
     btnDownload.setMnemonic(KeyEvent.VK_N);
-    btnDelete = new JButton(FTPGUI.DELETE);
+    btnDelete = new JButton(FTPGUI_.DELETE);
     btnDelete.setMnemonic(KeyEvent.VK_D);
-    btnExit = new JButton(FTPGUI.EXIT);
+    btnExit = new JButton(FTPGUI_.EXIT);
     btnExit.setMnemonic(KeyEvent.VK_X);
 
     ButtonHandler vf = new ButtonHandler();
@@ -143,7 +141,7 @@ public class FTPGUI extends JFrame {
     initialize();
     try {
       UIManager.setLookAndFeel(new WindowsLookAndFeel());
-      SwingUtilities.updateComponentTreeUI(FTPGUI.this);
+      SwingUtilities.updateComponentTreeUI(FTPGUI_.this);
     } catch (Exception ex) {
       System.out.println(ex);
     }
@@ -168,7 +166,7 @@ public class FTPGUI extends JFrame {
 
   public static void main(String[] args) throws Exception {
 
-    JFrame frame = new FTPGUI();
+    JFrame frame = new FTPGUI_();
     frame.addWindowListener(new WindowAdapter() {
           public void windowClosing(WindowEvent e) {
             System.exit(0);
@@ -185,10 +183,10 @@ public class FTPGUI extends JFrame {
     public void actionPerformed(ActionEvent e) {
 
       // if statements - for different types of client requests
-      if (e.getActionCommand().equals(FTPGUI.EXIT)) {
+      if (e.getActionCommand().equals(FTPGUI_.EXIT)) {
         System.exit(1);
       }
-      if (e.getActionCommand().equals(FTPGUI.UPLOAD)) {
+      if (e.getActionCommand().equals(FTPGUI_.UPLOAD)) {
         int index = localList.getSelectedIndex();
         String selectedItem =
           localList.getSelectedValue().toString();
@@ -198,7 +196,7 @@ public class FTPGUI extends JFrame {
         ((DefaultListModel) remoteList.getModel()).
         addElement(selectedItem);
       }
-      if (e.getActionCommand().equals(FTPGUI.DOWNLOAD)) {
+      if (e.getActionCommand().equals(FTPGUI_.DOWNLOAD)) {
         int index = remoteList.getSelectedIndex();
         String selectedItem =
           remoteList.getSelectedValue().toString();
@@ -208,7 +206,7 @@ public class FTPGUI extends JFrame {
         ((DefaultListModel) localList.getModel()).
         addElement(selectedItem);
       }
-      if (e.getActionCommand().equals(FTPGUI.DELETE)) {
+      if (e.getActionCommand().equals(FTPGUI_.DELETE)) {
         int index = localList.getSelectedIndex();
         if (index >= 0) {
           ((DefaultListModel) localList.getModel()).

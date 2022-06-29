@@ -1,10 +1,8 @@
-import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
+
 import com.sun.java.swing.plaf.windows.*;
-import java.util.*;
 
 public class FTPGUI extends JFrame {
   public static final String newline = "\n";
@@ -47,13 +45,13 @@ public class FTPGUI extends JFrame {
     JLabel lblSpacer = new JLabel("         ");
 
     //Create buttons
-    btnUpload = new UploadButton(FTPGUI.UPLOAD);
+    btnUpload = new UploadButton(FTPGUI_.UPLOAD);
     btnUpload.setMnemonic(KeyEvent.VK_U);
-    btnDownload = new DownloadButton(FTPGUI.DOWNLOAD);
+    btnDownload = new DownloadButton(FTPGUI_.DOWNLOAD);
     btnDownload.setMnemonic(KeyEvent.VK_N);
-    btnDelete = new DeleteButton(FTPGUI.DELETE);
+    btnDelete = new DeleteButton(FTPGUI_.DELETE);
     btnDelete.setMnemonic(KeyEvent.VK_D);
-    ExitButton btnExit = new ExitButton(FTPGUI.EXIT);
+    ExitButton btnExit = new ExitButton(FTPGUI_.EXIT);
     btnExit.setMnemonic(KeyEvent.VK_X);
 
     buttonHandler vf = new buttonHandler();
@@ -167,7 +165,7 @@ public class FTPGUI extends JFrame {
 
   public static void main(String[] args) throws Exception {
 
-    JFrame frame = new FTPGUI();
+    JFrame frame = new FTPGUI_();
     frame.addWindowListener(new WindowAdapter() {
           public void windowClosing(WindowEvent e) {
             System.exit(0);
