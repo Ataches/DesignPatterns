@@ -1,0 +1,1 @@
+Insert into Customer(ID, fname, lname,ccnum)values(4,'peter','peter','1000200030004003');
