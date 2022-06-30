@@ -54,7 +54,7 @@ class Member extends Thread {
     } catch (InterruptedException e) {
       //
     }
-    //leave after 500ms
+    //leave after 1500ms
     parking.leave(name);
   }
 }
